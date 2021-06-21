@@ -1,7 +1,8 @@
 package com.expedition.ekspedisi.ui;
 
 import android.os.Bundle;
-import android.renderscript.Element;
+
+import com.expedition.ekspedisi.data.cost.DataType;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public interface MainContract {
         void onViewCreate(android.view.View view, Bundle savedInstanceState);
 
         void onLoadingCost(boolean loadng, int progress);
-        void onResultCost(List<Element.DataType> data, List<String> courier);
+        void onResultCost(List<DataType> data, List<String> courier);
         void onErrorCost();
 
         void showMessage(String msg);
