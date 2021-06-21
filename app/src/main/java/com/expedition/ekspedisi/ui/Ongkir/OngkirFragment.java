@@ -48,7 +48,7 @@ public class OngkirFragment extends Fragment implements MainContract.View{
     ProgressBar progressBar;
 
     @Override
-    public void onViewCreate(View view, Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
 

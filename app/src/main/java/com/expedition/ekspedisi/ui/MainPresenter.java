@@ -25,8 +25,9 @@ public class MainPresenter implements MainContract.Presenter{
     String destination = "";
     int weight = 0;
 
-    List<DataType> output = new ArrayList<DataType>();
+    List<DataType> output = new ArrayList<>();
     List<String> courier = new ArrayList<>();
+
 
     public MainPresenter(MainContract.View view) {
         this.view = view;

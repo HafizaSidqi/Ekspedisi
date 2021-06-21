@@ -1,6 +1,5 @@
 package com.expedition.ekspedisi.data.cost;
 
-import android.renderscript.Element;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -17,7 +16,7 @@ public class DataResult implements Serializable {
     public String name;
     @SerializedName("costs")
     @Expose
-    public List<Element.DataType> costs = null;
+    public List<DataType> costs = null;
 
     public String getCode() {
         return code;
@@ -35,11 +34,11 @@ public class DataResult implements Serializable {
         this.name = name;
     }
 
-    public List<Element.DataType> getCosts() {
+    public List<DataType> getCosts() {
         return costs;
     }
 
-    public void setCosts(List<Element.DataType> costs) {
+    public void setCosts(List<DataType> costs) {
         this.costs = costs;
     }
 
