@@ -1,4 +1,4 @@
-package com.expedition.ekspedisi.ui;
+package com.expedition.ekspedisi.ui.Ongkir;
 
 import android.os.Handler;
 
@@ -7,6 +7,7 @@ import com.expedition.ekspedisi.data.cost.ResponseCost;
 import com.expedition.ekspedisi.network.Api;
 import com.expedition.ekspedisi.network.ApiEndpoint;
 import com.expedition.ekspedisi.network.Helper;
+import com.expedition.ekspedisi.ui.Ongkir.OngkirContract;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +17,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class MainPresenter implements MainContract.Presenter{
+public class OngkirPresenter implements OngkirContract.Presenter{
 
-    MainContract.View view;
+    OngkirContract.View view;
     ApiEndpoint endpoint;
 
     String origin = "";
@@ -29,7 +30,7 @@ public class MainPresenter implements MainContract.Presenter{
     List<String> courier = new ArrayList<>();
 
 
-    public MainPresenter(MainContract.View view) {
+    public OngkirPresenter(OngkirContract.View view) {
         this.view = view;
         endpoint = Api.getUrl().create(ApiEndpoint.class);
     }

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.expedition.ekspedisi.R;
 import com.expedition.ekspedisi.ui.Ongkir.OngkirFragment;
+import com.expedition.ekspedisi.ui.riwayat.RiwayatFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()){
                     case  R.id.menu_ongkir :
                         loadFragment(new OngkirFragment());
+                        break;
+
+                    case  R.id.menu_resi :
+                        loadFragment(new RiwayatFragment());
                         break;
                 }
 

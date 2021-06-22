@@ -1,4 +1,4 @@
-package com.expedition.ekspedisi.ui;
+package com.expedition.ekspedisi.ui.Ongkir;
 
 import android.os.Bundle;
 import android.renderscript.Element;
@@ -7,7 +7,7 @@ import com.expedition.ekspedisi.data.cost.DataType;
 
 import java.util.List;
 
-public interface MainContract {
+public interface OngkirContract {
     interface Presenter{
         void getJNE();
         void getTIKI();

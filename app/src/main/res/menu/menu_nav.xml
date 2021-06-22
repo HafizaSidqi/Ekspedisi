@@ -6,4 +6,10 @@
         android:icon="@drawable/ic_money_24"
         android:checked="true"
         />
+    <item
+        android:id="@+id/menu_resi"
+        android:title="Resi"
+        android:icon="@drawable/ic_sticky_note_2"
+        android:checked="true"
+        />
 </menu>

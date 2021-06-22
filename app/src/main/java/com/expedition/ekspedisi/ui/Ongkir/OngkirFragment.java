@@ -1,5 +1,7 @@
 package com.expedition.ekspedisi.ui.Ongkir;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -17,8 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.expedition.ekspedisi.R;
 import com.expedition.ekspedisi.data.cost.DataType;
-import com.expedition.ekspedisi.ui.MainContract;
-import com.expedition.ekspedisi.ui.MainPresenter;
+import com.expedition.ekspedisi.ui.riwayat.InsertActivity;
 import com.expedition.ekspedisi.ui.search.SearchCityActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -27,7 +29,7 @@ import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
-public class OngkirFragment extends Fragment implements MainContract.View{
+public class OngkirFragment extends Fragment implements OngkirContract.View{
 
     private static final int REQUEST_SOURCE = 1;
     private static final int REQUEST_DESTINATION = 2;
@@ -35,7 +37,7 @@ public class OngkirFragment extends Fragment implements MainContract.View{
     private String source_id = "";
     private String destination_id = "";
 
-    private MainPresenter presenter;
+    private OngkirPresenter presenter;
     private OngkirAdapter adapter;
 
     private List<DataType> data = new ArrayList<DataType>();
@@ -46,6 +48,7 @@ public class OngkirFragment extends Fragment implements MainContract.View{
     LinearLayout llMain;
     RecyclerView rvMain;
     ProgressBar progressBar;
+    Activity context;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -59,16 +62,16 @@ public class OngkirFragment extends Fragment implements MainContract.View{
         rvMain = view.findViewById(R.id.rvMain);
         progressBar = view.findViewById(R.id.progressBar);
 
-        presenter = new MainPresenter(this);
+        presenter = new OngkirPresenter(this);
 
         adapter = new OngkirAdapter(getContext(), data, courier);
         rvMain.setAdapter(adapter);
         rvMain.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
-        inputKotaAsal.setOnClickListener(new View.OnClickListener() {
+        inputKotaAsal.setOnClickListener (new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), SearchCityActivity.class);
+                Intent intent = new Intent(OngkirFragment.this.getActivity(), SearchCityActivity.class);
                 intent.putExtra("requestCode", REQUEST_SOURCE);
                 startActivityForResult(intent, REQUEST_SOURCE);
             }
@@ -77,7 +80,7 @@ public class OngkirFragment extends Fragment implements MainContract.View{
         inputKotaTujuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), SearchCityActivity.class);
+                Intent intent = new Intent(context.getApplicationContext(), SearchCityActivity.class);
                 intent.putExtra("requestCode", REQUEST_DESTINATION);
                 startActivityForResult(intent, REQUEST_DESTINATION);
             }
@@ -89,6 +92,8 @@ public class OngkirFragment extends Fragment implements MainContract.View{
                 data.clear();
                 courier.clear();
                 presenter.setupENV(getOrigin(), getDestination(), 1000);
+                Intent a = new Intent(context.getApplicationContext(), InsertActivity.class);
+                startActivity(a);
             }
         });
     }

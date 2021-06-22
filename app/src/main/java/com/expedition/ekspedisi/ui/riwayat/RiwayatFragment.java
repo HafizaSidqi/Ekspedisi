@@ -1,4 +1,4 @@
-package com.expedition.ekspedisi.ui.resi;
+package com.expedition.ekspedisi.ui.riwayat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,10 +10,9 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.expedition.ekspedisi.R;
-import com.expedition.ekspedisi.ui.MainActivity;
 
-public class ResiFragment extends Fragment {
-    private int time=4000;
+public class RiwayatFragment extends Fragment {
+    private int time=400;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -23,7 +22,7 @@ public class ResiFragment extends Fragment {
             @Override
             public void run() {
 
-                Intent splash=new Intent(ResiFragment.this.getActivity(), ReadActivity.class);
+                Intent splash=new Intent(RiwayatFragment.this.getActivity(), ReadActivity.class);
                 startActivity(splash);
                 //finish();
 
@@ -31,7 +30,7 @@ public class ResiFragment extends Fragment {
         },time);
     }
 
-    public ResiFragment() {
+    public RiwayatFragment() {
         //Required empty public constructor
     }
 

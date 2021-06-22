@@ -18,6 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.search.SearchCityActivity" />
+
+        <activity
+            android:name=".ui.riwayat.InsertActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:theme="@style/Theme.Ekspedisi"
+            android:isScrollContainer="true"/>
     </application>
 
 </manifest>
